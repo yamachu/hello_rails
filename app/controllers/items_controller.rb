@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = collection_root
   end
 
   # GET /items/1
@@ -19,10 +19,19 @@ class ItemsController < ApplicationController
     render action: :index
   end
 
+  def uncategorized
+    @items = Item.where(category_id: nil)
+    render action: :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
+    end
+
+    def collection_root
+      params[:category_id] ? Category.find(params[:category_id]).items : Item.all
     end
 
 end
