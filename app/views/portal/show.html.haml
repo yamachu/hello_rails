@@ -1,6 +1,6 @@
 %ul.categories
 	- @categories.each do |category|
-		%li= category.name
+		%li= link_to category.name, category_items_path(category)
 おすすめ
 %ul.recommended
 	- @recommended_items.each_with_index do |item, i|
