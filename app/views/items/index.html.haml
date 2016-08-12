@@ -3,5 +3,8 @@
 %ul.items
   - @items.each do |item|
     %li.item
-      %h2= link_to item.name, item
+      %h2
+        - if item.recommended?
+          %span.recommended オススメ
+        = link_to item.name, item
       %p= item.description
