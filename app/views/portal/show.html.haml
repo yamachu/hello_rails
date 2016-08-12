@@ -1,0 +1,11 @@
+%ul.categories
+	- @categories.each do |category|
+		%li= category.name
+おすすめ
+%ul.recommended
+	- @recommended_items.each_with_index do |item, i|
+		- if i < 5
+			%li= item.name
+		- else
+			= link_to 'オススメ一覧', '/items/recommended'
+			- break
