@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :item do
-    name "MyString"
-    description "MyString"
-    price 1
-    image_url "MyString"
+  	description {"素敵な#{name}です．"}
+    price 1_000
+    image_url {"http://example.com/images/item/#{id}.png"}
   end
 end
